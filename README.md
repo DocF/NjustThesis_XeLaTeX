@@ -5,7 +5,7 @@ NjustThesis Template for Bachelor of Sci &amp; Eng
 
 使用方法：
 
-       使用TeX发行版本：TeXLive(macOS下为MacTeX)，使用TeXstudio+XeLatex命令编译；
+       使用TeX发行版本：TeXLive(macOS下为MacTeX)，使用TeXstudio+XeLatex命令编译；
 
        ⽂档编码是：UTF-8;
 
