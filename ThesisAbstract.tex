@@ -1,0 +1,85 @@
+
+
+%	制定页眉页脚样式
+
+\fancyhead[CH]{\heiti\zihao{3}{毕\hspace{6mm}业\hspace{6mm}论\hspace{6mm}文\hspace{6mm}中\hspace{6mm}文\hspace{6mm}摘
+		\hspace{5mm}要 }}
+\fancyhead[LE,RO]{}
+\fancyhead[RE,LO]{}
+\cfoot{}
+\thisfancypage{%	
+	\setlength{\fboxsep}{0pt}%
+	\setlength{\fboxrule}{0.8pt}%
+	\setlength{\shadowsize}{0pt}%
+	\shadowbox}{}
+
+\zihao{-4}\songti
+\begin{spacing}{1.5}%%行间距变为double-space
+	\begin{center}
+		\begin{minipage}[b]{0.95\linewidth}
+			 \quad \\ [0.5ex]		
+			 
+\qquad 本文是南京理工本科毕设学位论模板改进版（理工类，非官方版），针对中文，\LaTeX 提供有\CTeX 套装（不适合入门，\url{http://www.latexstudio.net/archives/5151},这里给出理由）,TeXLive(XeLaTeX 更简单)等，并且国内较多院校都提供有\LaTeX 格式的学位论文模板，在此之前方孟敖学长已经完成了硕士和博士学位的\LaTeX 论文模板。苦于目前我皇家理工还无可用\LaTeX 本科毕业论文模板可用的情况，本人在研究了方孟敖学长的$\backslash$ njustThesis 模板之后，结合北京科技大学硕士(博士)毕业设计论文\LaTeX 模板，开发了本模板。
+			
+\qquad 上一版是在Windows10平台下开发，并且使用CTeX套件(WinEdt 7.0)+PdfLaTeX编辑，但现在主流的方式在TeXLive （Mac下为MacTeX） + TeXstudio（此为编译器，或者TeXLive自带的TeXworks）+XeLaTeX（编译方式）。PdfLaTeX是比较原始的版本，对Unicode的支持不是很好，所以显示汉字需要使用CJK宏包。优点是支持的宏包比较多，有些老一点的宏包必须用PdfLaTeX来编译。XeLaTeX是新的Unicode版本，内建支持Unicode(UTF-8)，自然也包括汉字在内，而且可以调用操作系统的truetype字体。因此在使用中文时，用XeLaTeX比较好，但缺点是不支持一些比较旧宏包。
+
+\qquad 该版本的 NjustThesis Template for Bachelor of Sci \& Eng 模板在MacOS High Sierra和 Windows 10下进行测试。
+
+\qquad 欢迎广大理工学子不断进行修改，完善该模板。
+			
+\vspace{8ex}
+\heiti{关键词}  \songti \qquad \LaTeX  \qquad \CTeX
+		\end{minipage}
+	\end{center}
+\end{spacing}
+
+
+
+\newpage
+\fancyhead[CH]{\heiti\zihao{3}{毕\hspace{6mm}业\hspace{6mm}论\hspace{6mm}文\hspace{6mm}外\hspace{6mm}文\hspace{6mm}摘
+		\hspace{5mm}要 }}
+\renewcommand{\headrulewidth}{0.0pt}
+\thisfancypage{%	
+	\setlength{\fboxsep}{2pt}%
+	\setlength{\fboxrule}{0.8pt}%
+	\setlength{\shadowsize}{0pt}%
+	\shadowbox}{}
+
+
+\zihao{-4}\songti
+
+
+
+\begin{spacing}{1.5}%%行间距变为double-space
+\begin{center}
+\begin{minipage}[b]{0.95\linewidth}
+	\setlength{\extrarowheight}{7.5mm}
+    	\begin{tabular}{p{3cm}p{11cm}<{\centering}}
+    		{\bf \heiti \zihao{3}T\hspace{1mm}i\hspace{1mm}t\hspace{1mm}l\hspace{1mm}e} & {\zihao{4}Design of Satellite Attitude Determination System}\\
+    		\Xcline{2-2}{0.8pt}
+    	   & {\zihao{4}Based on Geomagnetic Field and Solar Vector}\\
+    		\Xcline{2-2}{0.8pt}
+    	\end{tabular}\\[1cm]
+
+	\textbf{\heiti\zihao{3} Abstract}
+	
+	\quad For communication, positioning and other purposes, the satellite needs to be targeted. So we have to control the attitude of the satellite, and the premise of attitude control is to determine the attitude.
+	This paper needs to complete the design of high-precision attitude determination system for satellite through algorithm research, simulation analysis and semi-physical experiment. And it provides support for Tsinghua science satellite's future orbit attitude determination.\\
+	First of all, the paper introduces the background of Tsinghua Science satellite project, as well as the domestic and foreign situation of the attitude determination system design.  The theoretical basis of satellite attitude determination is systematically analyzed in the paper, including commonly used spatial coordinate systems  and theitir transformations, and the comparison of several kinds of attitude parameters and motion equations and dynamic equations.  Then we summarize the attitude determination algorithm of several state estimation, and analyze the basic idea of EKF and UKF.
+	
+	Second,we select the "magnetometer + solar sensor" scheme in the paper . MEKF and UKF are respectively simulated and analyzed, and the filtering algorithm is selected from the standpoint of stability, calculation, precision and resource consumption.
+	
+	Finally, semi-physical simulation verification experiments are designed, including simulated solar sensor measurement experiment and magnetometer measurement experiment. Through these two experiments, the feasibility of the "magnetometer + solar sensor" scheme is verified and analyzed. The two experiments also provide a preliminary basis for future joint simulation experiments.
+	
+	\vspace{8ex}
+{\bf\zihao{-4}\heiti{Keywords}}  \songti \qquad \LaTeX  \qquad \CTeX
+	
+\end{minipage}
+\end{center}
+
+\end{spacing} 
+  
+
+
+
+
