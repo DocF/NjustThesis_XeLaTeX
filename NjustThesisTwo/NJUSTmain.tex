@@ -1,0 +1,271 @@
+%------------------------------------------------------------------------------------------------
+%
+%
+%      Project Name: NjustThesis Template for Bachelor of Economics , Management & Arts
+%
+%
+%------------------------------------------------------------------------------------------------
+%
+%                                created by Qingyun Fang <fqy2017@gmail.com>
+%
+%                                             Last-modified: 2018-3-10
+% 
+%------------------------------------------------------------------------------------------------
+
+\documentclass[UTF8,cs4size,a4paper,fancyhdr,twoside]{ctexbook}
+
+\usepackage{ctex}
+\usepackage[top=20mm, bottom=30mm, left=20mm, right=20mm]{geometry}   %	页边距设置
+\usepackage{titlesec}              % 修改章节标题
+\usepackage{fancyhdr}           % 页眉页脚
+\usepackage{fancybox}          %  生成摘要页的边框
+\usepackage{setspace}           % 调整行距
+\usepackage{titletoc}              % 目录
+\usepackage[super,square,sort & compress]{natbib}   % 参考文献设置
+\usepackage[titletoc]{appendix}
+\usepackage{graphicx}           %   插图
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage{listings}             %    插入代码
+\usepackage[framed,numbered,autolinebreaks,useliterate]{mcode} % 插入代码
+\usepackage{float}
+
+\usepackage{tabu}                %  表格
+\usepackage{booktabs}        %  表格线宏包
+\usepackage{tabularx}          %  调整表格列宽
+\usepackage{multirow}         %  表格合并
+\usepackage{array}               %  数组宏包，用于表格宽度
+\usepackage{multicol}          %  表格合并
+\usepackage{longtable}        %  表格合并
+\usepackage[figuresright]{rotating}   %表格合并
+\usepackage{colortbl}           %  调节表格行高
+\usepackage{makecell}         %   加粗表格横线
+
+\usepackage{amsmath}        %   数学符号
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\usepackage{url}                  %  插入网址
+
+
+
+
+%------------------------------------------------------------------------------------------------
+%		重新制定字体大小命令，以便后面方便使用
+%------------------------------------------------------------------------------------------------
+
+%	参考CTeX宏包说明文档中对字体大小的规定，也可以使用诸如\zihao{3}\zihao{-3}之类的命名
+
+\newcommand{\chuhao}{\fontsize{42bp}{\baselineskip}\selectfont}
+\newcommand{\xiaochu}{\fontsize{36bp}{\baselineskip}\selectfont}
+\newcommand{\yihao}{\fontsize{26bp}{\baselineskip}\selectfont}
+\newcommand{\xiaoyi}{\fontsize{24bp}{\baselineskip}\selectfont}
+\newcommand{\erhao}{\fontsize{22bp}{\baselineskip}\selectfont}
+\newcommand{\xiaoer}{\fontsize{18bp}{\baselineskip}\selectfont}
+\newcommand{\sanhao}{\fontsize{16bp}{\baselineskip}\selectfont}
+\newcommand{\xiaosan}{\fontsize{15bp}{\baselineskip}\selectfont}
+\newcommand{\sihao}{\fontsize{14bp}{\baselineskip}\selectfont}
+\newcommand{\xiaosi}{\fontsize{12bp}{\baselineskip}\selectfont}
+\newcommand{\wuhao}{\fontsize{10.5bp}{\baselineskip}\selectfont}
+\newcommand{\xiaowu}{\fontsize{9bp}{\baselineskip}\selectfont}
+
+
+% CTeX 字体使用说明
+
+%   \songti           宋体命令
+%   \heiti              黑体命令
+%   \fangsong      仿宋命令
+%   \kaishu           楷书命令
+%   \lishu             隶书命令
+%   \youyuan       幼圆命令
+%   \yahei            雅黑命令
+
+
+%   XeTeX 字体使用说明
+
+\setCJKfamilyfont{SCB}{STSongti-SC-Regular}             
+\newcommand{\songtibold}{\CJKfamily{SCB}}               % 设置宋体加粗
+
+\setCJKfamilyfont{STB}{STKaitiSC-Bold}             
+\newcommand{\kaishubold}{\CJKfamily{STB}}               % 设置楷体加粗
+
+% 中文断行
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+%------------------------------------------------------------------------------------------------
+%		重新制定章节标题样式，包括样式和标题与上下文的间距
+%------------------------------------------------------------------------------------------------
+
+\CTEXsetup[number={\arabic{chapter}}]{chapter}
+\CTEXsetup[name={,}]{chapter}
+\CTEXsetup[nameformat={\heiti\xiaosan\raggedright}]{chapter}   %	Chapter章节标号格式
+\CTEXsetup[titleformat={\heiti\xiaosan\raggedright}]{chapter}      %	Chapter章节标题格式
+\CTEXsetup[beforeskip={-8ex}]{chapter}                          
+\CTEXsetup[afterskip={1ex}]{chapter}
+%\titleformat{\chapter}{\bf\heiti\xiaosan\raggedright}{\bf\heiti\arabic{chapter}}{1em}{}[]
+
+
+\CTEXsetup[format={\heiti\zihao{4}\bfseries}]{section}
+\CTEXsetup[format={\heiti\zihao{-4}\bfseries}]{subsection}
+\CTEXsetup[format={\heiti\zihao{-4}\bfseries}]{subsubsection}
+
+\titlespacing{\chapter}{0em}{-3ex}{1ex}
+\titlespacing{\section}{0em}{0ex}{0ex}
+\titlespacing{\subsection}{0em}{0ex}{0ex}
+\titlespacing{\subsubsection}{0em}{0ex}{0ex}
+
+
+
+%------------------------------------------------------------------------------------------------
+%		制定页眉页脚样式、页眉高度以及页眉与正文的距离
+%------------------------------------------------------------------------------------------------
+
+%	制定页眉高度和页眉与正文的距离
+\setlength{\headheight}{1.4cm}
+\setlength{\headsep}{8pt}
+
+%	制定页眉页脚样式
+\fancypagestyle{plain}{
+	\pagestyle{fancy}      
+}
+
+\pagestyle{fancy}
+\fancyhead[C]{
+	\zihao{-2}{\songtibold 本\hspace{5mm}科\hspace{5mm}毕\hspace{5mm}业\hspace{5mm}论\hspace{5mm}文}}
+\fancyhead[LE,RO]{第~\thepage ~页}
+\fancyhead[RE,LO]{}
+\cfoot{}
+
+\renewcommand{\headrulewidth}{0.7pt}
+
+\makeatletter
+\newcommand{\openany}{\@openrightfalse}
+\newcommand{\openright}{\@openrighttrue}
+\makeatother
+
+
+
+%------------------------------------------------------------------------------------------------
+%		目录格式设置
+%------------------------------------------------------------------------------------------------
+
+\renewcommand{\contentsname}{ \hspace*{\fill} 目\hspace{1.5em} 次\hspace*{\fill}}
+
+\titlecontents{chapter}[0em]{\songti\zihao{-4}}{\thecontentslabel\ }{}
+{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+\titlecontents{section}[0em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+\titlecontents{subsection}[0em]{\vspace{0.1\baselineskip}\songti\zihao{-4}}{\thecontentslabel\ }{}
+{\hspace{.5em}\titlerule*[4pt]{$\cdot$}\contentspage}
+
+
+
+%------------------------------------------------------------------------------------------------
+%		参考文献标题设置
+%------------------------------------------------------------------------------------------------
+
+\renewcommand\bibname{参\hspace{0.5em}考\hspace{0.5em}文\hspace{0.5em}献}
+
+
+
+%------------------------------------------------------------------------------------------------
+%		附录标题设置
+%------------------------------------------------------------------------------------------------
+
+\CTEXsetup[name={附录},number={\Alph{chapter}}]{appendix}
+
+
+
+%------------------------------------------------------------------------------------------------
+%		图片标题设置
+%------------------------------------------------------------------------------------------------
+
+\captionsetup[table]{name={表},labelsep=quad}
+\captionsetup[figure]{name={图},labelsep=quad}
+
+\DeclareCaptionFont{captionfont}{\heiti\fontsize{10.5bp}{13.65bp}\selectfont}
+\captionsetup{font=captionfont}
+
+\newcommand{\topcaption}{%
+	\setlength{\abovecaptionskip}{0ex}%
+	\setlength{\belowcaptionskip}{1.5ex}%
+	\caption}   % 表格上标题修改
+
+
+\setlength{\intextsep}{0pt}
+\setlength{\textfloatsep} {0pt}
+
+
+
+%------------------------------------------------------------------------------------------------
+%		目录代码自动换行
+%------------------------------------------------------------------------------------------------
+
+\lstset{breaklines}    %自动将长的代码行换行排版
+\lstset{extendedchars=false}
+
+
+
+
+%------------------------------------------------------------------------------------------------
+%		正文区
+%------------------------------------------------------------------------------------------------
+\begin{document}
+
+\include{ThesisCover}
+
+\include{ThesisStatement}
+
+\renewcommand{\headrulewidth}{0.0pt}
+\include{ThesisAbstract}
+\renewcommand{\headrulewidth}{0.7pt}
+
+
+%   目录页页眉页脚设计，以及目录格式设计
+\newpage
+\openright
+\fancypagestyle{plain}{
+	\pagestyle{fancy}      
+}
+
+\pagestyle{fancy}
+\fancyhead[C]{
+	\songti\zihao{-2}\textbf{\songtibold
+		本\hspace{5mm}科\hspace{5mm}毕\hspace{5mm}业\hspace{5mm}论\hspace{5mm}文}}
+\fancyhead[LE,RO]{第~\thepage ~页}
+\fancyhead[RE,LO]{}
+\cfoot{}
+{\setlength{\baselineskip}{18bp}
+	\pagenumbering{Roman}   % 将目录页码转换为罗马数字
+	\setcounter{page}{1}      % 设置当前页为目录页第一页
+	% 在ctexbook里面把‘目次’当做chapter来处理，因此这里需要对chapter进行章节调整
+	\CTEXsetup[nameformat={ \bfseries\heiti \zihao{1}\raggedright}]{chapter}% 章标题格式
+	\CTEXsetup[titleformat={ \bfseries\heiti \zihao{-3}\raggedright}]{chapter}% 章标题格式
+	\CTEXsetup[beforeskip={8ex}]{chapter}
+	\CTEXsetup[afterskip={6ex}]{chapter}
+	\tableofcontents    
+}             %生成目录
+
+\newpage
+{\color{white}{1}}
+%
+\openany
+\setlength{\extrarowheight}{2mm}
+
+
+
+ \include{ChapterOne}
+
+\include{ChapterTwo}
+
+\include{ThesisConclusion}
+
+\include{ThesisThanks}
+
+\include{ThesisReference}
+
+\include{ThesisAppendix}
+
+\end{document}

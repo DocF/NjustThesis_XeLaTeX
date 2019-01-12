@@ -1,0 +1,98 @@
+\CTEXsetup[number={\arabic{chapter}}]{chapter}
+\CTEXsetup[name={,}]{chapter}
+\CTEXsetup[nameformat={\bf\heiti\xiaosan\raggedright}]{chapter}   %	Chapter章节标号格式
+\CTEXsetup[titleformat={\bf\heiti\xiaosan\raggedright}]{chapter}      %	Chapter章节标题格式
+\CTEXsetup[beforeskip={-8ex}]{chapter}                          
+\CTEXsetup[afterskip={1ex}]{chapter}
+
+
+\lstset{language=Matlab}
+
+\appendix
+\begin{appendix}
+\chapter{证明}
+\begin{spacing}{1.5}
+%-------------------------------------------------------------------------------
+%	AppendixOne正文部分
+%-------------------------------------------------------------------------------
+提供一个证明环境，给出一个证明示例。
+
+下面证明命题，如果$\bm{A}$是正交矩阵，那么其特征值为$\pm1$。
+\begin{proof}
+设$\lambda$ 为正交矩阵的特征值，$\bm{e}$是$\bm{A}$ 属于$\lambda$ 的特征向量,即有:$\bm{A}\bm{e}=\lambda\bm{e}$，且$\bm{e}\neq0$。
+
+上式两边取转置，$\bm{e}^{T}\bm{A}^{T}=\lambda\bm{e}^{T}$。
+
+\text{将}上面两式相乘， $\bm{e}^{T}\bm{A}^{T}\bm{A}\bm{e}=\lambda^2\bm{e}^{T}\bm{e}$。
+
+$\because\bm{A}$是正交矩阵
+
+$\therefore\bm{A}^{T}\bm{A}=\bm{I}$
+
+$\therefore\bm{e}^{T}\bm{e}=\lambda^2\bm{e}^{T}\bm{e}$
+
+又 $\because\bm{e}\neq0$
+
+$\therefore\bm{e}^{T}\bm{e}$ 是一个非零的数
+
+$\therefore\lambda^2=1\Rightarrow\lambda=\pm1$
+\end{proof}
+
+
+
+\end{spacing}
+%------------------------------------------------------------------------------
+
+
+\chapter{MATLAB Code}
+
+%-------------------------------------------------------------------------------
+%	AppendixOne正文部分
+%-------------------------------------------------------------------------------
+下面是一个MATLAB程序的事例，使用了Package mcode，它能较好还原MATLAB本身的编写风格。
+\begin{lstlisting}
+%   The program normalizes the measurement data and compares it to the standard cosine function
+data=xlsread('data_sun',1,'B3:E39');
+min=[(data(1,1)+data(37,1))/2,(data(1,2)+data(37,2))/2,...
+    (data(1,3)+data(37,3))/2,(data(1,4)+data(37,4))/2];
+max=[data(19,1),data(19,2),data(19,3),data(19,4)];
+Min=repmat(min,37,1);
+Max=repmat(max,37,1);
+data=(data-Min)./(Max-Min);
+x=-pi/2:pi/36:pi/2;
+y=cos(x);
+%----------------------figure-------------------------%
+figure(1);
+subplot(2,2,1);
+plot(x,data(:,1),'ro-');
+hold on;
+plot(x,y,'b-');
+title('R=1.2\Omega');
+axis([-2,2,0,1]);
+grid on;
+subplot(2,2,2);
+plot(x,data(:,2),'ro-');
+hold on;
+plot(x,y,'b-');
+title('R=1.6\Omega');
+axis([-2,2,0,1]);
+grid on;
+subplot(2,2,3);
+plot(x,data(:,2),'ro-');
+hold on;
+plot(x,y,'b-');
+title('R=2.0\Omega');
+axis([-2,2,0,1]);
+grid on;
+subplot(2,2,4);
+plot(x,data(:,4),'ro-');
+hold on;
+plot(x,y,'b-');
+title('R=2.4\Omega');
+grid on;
+axis([-2,2,0,1]);
+\end{lstlisting}
+
+%------------------------------------------------------------------------------
+
+\end{appendix}
