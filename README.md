@@ -14,4 +14,4 @@ This repo includes two files:
 
 NjustThesisOne is for Bachelor of Sci & Eng.
 
-NjustThesisOne is for Bachelor of of Econ , Mgmt & Arts.
+NjustThesisTwo is for Bachelor of of Econ , Mgmt & Arts.
