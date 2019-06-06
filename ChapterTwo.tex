@@ -19,28 +19,65 @@
 
 \section{图片使用}
 为了方便于管理，所有的图片均放在figure文件下。在输入图片名称时，需要在前面添加一个相当于路径的语句“figure//”，以下文本框中给出一个图片插入的例子。在某些情况下，如果不想让图片浮动把\fbox{[htb]}选项改成\fbox{[H]}，H为强制禁止浮动，但会拉宽段间距和公式与正文之间距离，结合自己需求进行调整。这里已经把图片标题的格式和前后间距都已经设置，可以直接使用“$\setminus$caption”即可。
-
+\vspace{-4ex}
 \begin{lstlisting}
 \begin{figure}[htb]
   \centering
   \includegraphics[width=0.65\textwidth]{figure//fig_calculate}
-  \caption{SampleFigure}\label{samplefigure}
+  \caption{SampleFigure1}\label{samplefigure1}
 \end{figure}
-
 \end{lstlisting}
+\vspace{-0.5ex}
 
-下图\ref{samplefigure}上面程序得到图片效果。
+下图\ref{samplefigure1}上面程序得到图片效果。
 
 \begin{figure}[htbp]
   \centering
   % Requires \usepackage{graphicx}
-  \includegraphics[width=0.65\textwidth]{figure//fig_calculate}
-  \caption{SampleFigure}\label{samplefigure}
+  \includegraphics[width=0.65\textwidth, trim=0 20 0 0,clip]{figure//fig_calculate}
+  \caption{SampleFigure1}\label{samplefigure1}
+\end{figure}
+
+\newpage
+若要在页面中并列放置两或者更多张图片，请使用\fbox{$\setminus$begin\{minipage\}}环境，并且使最左侧和最右侧的图片尽量与文字的边缘对齐。考虑到对称性，图片可能需要裁剪来去除部分边缘，通过设置trim属性可以进行裁剪，其四个值按照顺序分别为左侧、下侧、右侧和上侧的裁减量。
+
+\vspace{-4ex}
+\begin{lstlisting}
+\begin{figure}[htb]
+	\begin{minipage}[b]{0.5\textwidth}
+		\flushleft
+		\includegraphics[width=\textwidth,trim=0 20 0 0,clip]{figure//fig_calculate}
+		\caption{SampleFigure2}\label{samplefigure2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\flushright
+		\includegraphics[width=\textwidth,trim=0 20 0 0,clip]{figure//fig_calculate}
+		\caption{SampleFigure3}\label{samplefigure3}
+	\end{minipage}
+\end{figure}
+\end{lstlisting}
+\vspace{1ex}
+
+\begin{figure}[htb]
+	\begin{minipage}[b]{0.5\textwidth}
+		\flushleft
+		\includegraphics[width=\textwidth,trim=35 20 20 0,clip]{figure//fig_calculate}
+		\caption{SampleFigure2}\label{samplefigure2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\flushright
+		\includegraphics[width=\textwidth,trim=20 20 35 0,clip]{figure//fig_calculate}
+		\caption{SampleFigure3}\label{samplefigure3}
+	\end{minipage}
 \end{figure}
 
 \section{表格使用}
 由于学校要求三线表格，自己在制作时需要注意该点，表格中的文字应该为五号宋体，结合两点要求，文本框中给出一个表格的范例。为了区分和图片的标题命名，在使用表格时使用“$\setminus$topcaption”，表格标题的格式和前后间距都已经设置。
 
+\newpage
+\vspace{-4ex}
 \begin{lstlisting}
 {\zihao{5}\songti
 \begin{table}[htb]
@@ -60,6 +97,7 @@
 \end{center}
 \end{table}}
 \end{lstlisting}
+\vspace{-2ex}
 
 下表\ref{sampeltable}是一个表格示例。
 
@@ -88,10 +126,14 @@
 \section{公式使用}
 对于公式使用\fbox{$\setminus$begin\{equation\}}环境，如果有多行公式可以使用\fbox{$\setminus$begin\{split\}}环境，符号“\&”为各行公式对齐的位置。
 
+公式和上下文之间默认间距较大，可使用\fbox{$\setminus$equationskip}和\fbox{$\setminus$equationskipfrac}命令来缩小间距，前者适用于简单的单行公式，后者适用于带有分式、矩阵的单行公式或者多行公式。
+
 如果需要对公式中的字母进行注释，并且注释较多，这里推荐一种方法，可以使用表格的环境，表格为2列，第一列字母靠右，第二列解释靠左，如\fbox{$\setminus$begin\{tabular\}\{r@\{---\}l\}}。 
 下面文本框中给出了一个多行公式以及注释的示例。
+\vspace{-4ex}
 \begin{lstlisting}
 \begin{equation}\label{SampleEquation}
+  \equationskipfrac
   \begin{split}
   \bm{x_}k&=\bm{\Phi}_{k,k-1}\bm{x}_{k-1}+\bm{\Gamma}_{k-1}\bm{w}_{k-1}\\
   \bm{z}_k&=\bm{H}_k\bm{x}_k+\bm{v}_k
@@ -107,9 +149,11 @@
   $\bm{v}_k$ & The measurement noise of the $k^{th}$ step,$\bm{v_k}\sim N(0,\bm{R}_k)$.
 \end{tabular}
 \end{lstlisting}
+\vspace{-2ex}
 
 下式\ref{sampeltable}和注释为上面程序的效果，数学符号可以自行百度，或者在这\url{http://www.mohu.org/info/symbols/symbols.htm}上面寻找，几乎包含了基本上要用的数学符号。
 \begin{equation}\label{SampleEquation}
+  \equationskipfrac
   \begin{split}
   \bm{x_}k&=\bm{\Phi}_{k,k-1}\bm{x}_{k-1}+\bm{\Gamma}_{k-1}\bm{w}_{k-1}\\
   \bm{z}_k&=\bm{H}_k\bm{x}_k+\bm{v}_k
@@ -127,10 +171,31 @@
   $\bm{v}_k$ & The measurement noise of the $k^{th}$ step,$\bm{v_k}\sim N(0,\bm{R}_k)$.
 \end{tabular}
 
-\section{参考书籍}
-参考文献在ThesisReference中\fbox{$\setminus$begin\{thebibliography\}}环境中进行填写，具体格式规范查阅参考文献标注国家标准GB/T~7714——2015。
+\section{枚举格式}
+官方模板未对枚举格式做出规定。但为了方便使用，本模板参考了大部分中文期刊的排版，对枚举格式做出了设置。枚举使用\fbox{$\setminus$begin\{enumerate\}}环境，编号为带有括号的数字，每个item的首行开头缩进两个字符，其余行不缩进。考虑到美观，不建议在item内部进行分段。示例如下：
+
+\vspace{-4ex}
+\begin{lstlisting}
+\begin{enumerate}
+	\item 内容一，内容一，内容一，内容一……
+	\item 内容二，内容二，内容二，内容二……
+	\item 内容三，内容三，内容三，内容三……
+\end{enumerate}
+\end{lstlisting}
+\vspace{-1ex}
+
+\begin{enumerate}
+	\item 内容一，内容一，内容一，内容一，内容一，内容一，内容一，内容一，内容一，内容一，内容一，内容一，内容一。
+	\item 内容二，内容二，内容二，内容二，内容二，内容二，内容二，内容二，内容二，内容二，内容二，内容二，内容二。
+	\item 内容三，内容三，内容三，内容三，内容三，内容三，内容三，内容三，内容三，内容三，内容三，内容三，内容三。
+\end{enumerate}
+
+\section{参考文献}
+参考文献在ThesisReference中\fbox{$\setminus$begin\{thebibliography\}}环境中进行填写，具体格式规范查阅参考文献标注国家标准GB/T~7714——2015。按照官方模板的要求，编号和参考文献内容分别左对齐。本模板使用box对编号的位置进行约束\fbox{$\setminus$makebox[1.5em][l]\{[\#1]\}}，设定宽度为1.5em，该值适用于一位和两位的编号，若编号达到三位数，则需要自行调整宽度。
 
 模板参考文献使用下面文本框中方法，该方法比较业余，不便于大量参考文献的管理，并且需要手动输入书目信息。专业的方法是使用BibTeX，使用方法自行百度，BibTeX可以在Google scholar、百度学术上直接导入。
+
+\vspace{-4ex}
 \begin{lstlisting}
 \begin{thebibliography}
 \bibitem author,article, year, vol,
@@ -143,6 +208,10 @@
 考虑到大多数同学的代码应该是MATLAB，在ThesisAppendix文件中将语言设置m语言，可以根据自身需要进行改变。网上的Mcode包编译效果非常不错，这里就直接拿来，做一回拿来主义。
 
 Mcode包效果在附录B MATLAB Code中看到，其能较好地还原MATLAB本身的编程风格。程序代码需放到\fbox{$\setminus$begin\{lstlisting\}}环境中。
+
+由于某些未知的原因，如果\fbox{$\setminus$begin\{lstlisting\}}环境跨页，可能会导致页眉出现乱码，所以使用时请注意代码的长度和放置的位置。
+
+此外建议在\fbox{$\setminus$begin\{lstlisting\}}环境开始前使用\fbox{$\setminus$vspace\{-4ex\}}，结束后使用\fbox{$\setminus$vspace\{-1.5ex\}}来减少代码和上下文之间的距离，具体数值需要按照实际情况调整。
 
 \end{spacing}
 }

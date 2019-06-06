@@ -45,11 +45,13 @@ $\therefore\lambda^2=1\Rightarrow\lambda=\pm1$
 
 
 \chapter{MATLAB Code}
-
+\begin{spacing}{1.5}
 %-------------------------------------------------------------------------------
 %	AppendixOne正文部分
 %-------------------------------------------------------------------------------
 下面是一个MATLAB程序的事例，使用了Package mcode，它能较好还原MATLAB本身的编写风格。
+
+\vspace{-4ex}
 \begin{lstlisting}
 %   The program normalizes the measurement data and compares it to the standard cosine function
 data=xlsread('data_sun',1,'B3:E39');
@@ -84,15 +86,8 @@ plot(x,y,'b-');
 title('R=2.0\Omega');
 axis([-2,2,0,1]);
 grid on;
-subplot(2,2,4);
-plot(x,data(:,4),'ro-');
-hold on;
-plot(x,y,'b-');
-title('R=2.4\Omega');
-grid on;
-axis([-2,2,0,1]);
 \end{lstlisting}
-
+\end{spacing}
 %------------------------------------------------------------------------------
 
 \end{appendix}
