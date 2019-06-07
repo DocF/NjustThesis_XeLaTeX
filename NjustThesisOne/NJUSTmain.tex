@@ -21,7 +21,7 @@
 \usepackage{fancybox}          %  生成摘要页的边框
 \usepackage{setspace}           % 调整行距
 \usepackage{titletoc}              % 目录
-\usepackage[super,square,sort & compress]{natbib}   % 参考文献设置
+\usepackage[super,square,sort & compress,comma]{natbib}   % 参考文献设置
 \usepackage[titletoc]{appendix}
 \usepackage{graphicx}           %   插图
 \usepackage{subfig}
@@ -40,6 +40,7 @@
 \usepackage[figuresright]{rotating}   %表格合并
 \usepackage{colortbl}           %  调节表格行高
 \usepackage{makecell}         %   加粗表格横线
+\usepackage{enumitem}
 
 \usepackage{amsmath}        %   数学符号
 \usepackage{amsthm}
@@ -84,7 +85,8 @@
 
 %   XeTeX 字体使用说明
 
-\setCJKfamilyfont{SCB}{STSongti-SC-Regular}             
+\setCJKfamilyfont{SCB}{STSongti-SC-Regular} 			% 若使用本行设置导致编译时无法找到字体，则将本行注释，使用下一行设置
+%\setCJKfamilyfont{SCB}[AutoFakeBold = {2.2}]{华文宋体}      
 \newcommand{\songtibold}{\CJKfamily{SCB}}               % 设置宋体加粗
 
 \setCJKfamilyfont{STB}{STKaitiSC-Bold}             
@@ -208,6 +210,28 @@
 \lstset{extendedchars=false}
 
 
+%------------------------------------------------------------------------------------------------
+%		枚举设置
+%------------------------------------------------------------------------------------------------
+
+\setlist[enumerate]{itemsep=0pt,parsep=0pt,topsep=0pt,leftmargin=0em,itemindent=4em,label=(\arabic*)}
+
+%------------------------------------------------------------------------------------------------
+%		公式设置
+%------------------------------------------------------------------------------------------------
+
+\newcommand{\equationskip}{\setlength\abovedisplayskip{1ex} 
+	\setlength\belowdisplayskip{1ex}
+	\setlength\abovedisplayshortskip{0.5ex} 
+	\setlength\belowdisplayshortskip{0.5ex}}
+\newcommand{\equationskipfrac}{\setlength\abovedisplayskip{1.5ex} 
+	\setlength\belowdisplayskip{1.5ex}}
+
+%------------------------------------------------------------------------------------------------
+%		段落间距设置
+%------------------------------------------------------------------------------------------------
+
+\setlength{\parskip}{0ex}
 
 
 %------------------------------------------------------------------------------------------------
